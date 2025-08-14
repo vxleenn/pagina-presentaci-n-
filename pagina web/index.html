@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes y Sistemas Distribuidos - Interacción Humano Computadora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-decoration"></div>
+    
+    <header>
+        <div class="header-content">
+            <h1>Redes y Sistemas Distribuidos</h1>
+            <p>Explorando la Interacción Humano Computadora en el mundo digital</p>
+        </div>
+        <div class="header-wave"></div>
+    </header>
+
+    <nav class="navigation">
+        <div class="nav-container">
+            <button class="nav-btn active" onclick="loadContent('home')" data-section="home">
+                <span class="nav-icon">🏠</span>
+                <span>Inicio</span>
+            </button>
+            <button class="nav-btn" onclick="loadContent('rama')" data-section="rama">
+                <span class="nav-icon">🌿</span>
+                <span>¿Qué es la rama?</span>
+            </button>
+            <button class="nav-btn" onclick="loadContent('historia')" data-section="historia">
+                <span class="nav-icon">📚</span>
+                <span>Historia y evolución</span>
+            </button>
+            <button class="nav-btn" onclick="loadContent('cambios')" data-section="cambios">
+                <span class="nav-icon">🔄</span>
+                <span>Cambios del usuario</span>
+            </button>
+            <button class="nav-btn" onclick="loadContent('errores')" data-section="errores">
+                <span class="nav-icon">⚠️</span>
+                <span>Errores y aprendizajes</span>
+            </button>
+            <button class="nav-btn" onclick="loadContent('retos')" data-section="retos">
+                <span class="nav-icon">🎯</span>
+                <span>Retos de diseño</span>
+            </button>
+            <button class="nav-btn" onclick="loadContent('disciplinas')" data-section="disciplinas">
+                <span class="nav-icon">🔬</span>
+                <span>Disciplinas</span>
+            </button>
+            <button class="nav-btn" onclick="loadContent('trabajo')" data-section="trabajo">
+                <span class="nav-icon">👥</span>
+                <span>Trabajo multidisciplinario</span>
+            </button>
+            <button class="nav-btn" onclick="loadContent('conexion')" data-section="conexion">
+                <span class="nav-icon">🔗</span>
+                <span>Conexión Alan Dix</span>
+            </button>
+            <button class="nav-btn" onclick="loadContent('futuro')" data-section="futuro">
+                <span class="nav-icon">🚀</span>
+                <span>Proyección futura</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="content-wrapper">
+            <div class="image-section">
+                <div class="image-container">
+                    <img src="imagenes/images.png" alt="Evolución de redes y sistemas" class="main-image">
+                    <div class="image-overlay">
+                        <div class="image-caption">Evolución de Redes y Sistemas</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content" class="content-section">
+                <div class="content-header">
+                    <h2>Bienvenido al mundo de las Redes y Sistemas Distribuidos</h2>
+                    <p>Explora los conceptos fundamentales de la Interacción Humano Computadora</p>
+                </div>
+                <div class="content-body">
+                    <p>Selecciona una sección del menú superior para comenzar tu viaje de aprendizaje. Cada tema ha sido cuidadosamente estructurado para ofrecerte una comprensión profunda y práctica.</p>
+                    
+                    <div class="welcome-cards">
+                        <div class="welcome-card">
+                            <div class="card-icon">🎓</div>
+                            <h3>Aprende</h3>
+                            <p>Conceptos fundamentales explicados de manera clara y accesible</p>
+                        </div>
+                        <div class="welcome-card">
+                            <div class="card-icon">💡</div>
+                            <h3>Descubre</h3>
+                            <p>Innovaciones y tendencias en el campo de la tecnología</p>
+                        </div>
+                        <div class="welcome-card">
+                            <div class="card-icon">🔍</div>
+                            <h3>Explora</h3>
+                            <p>Casos de estudio y aplicaciones prácticas del conocimiento</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Redes y Sistemas Distribuidos - Todos los derechos reservados</p>
+            <div class="footer-links">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="home.js"></script>
+    <script src="rama.js"></script>
+    <script src="historia.js"></script>
+    <script src="cambios.js"></script>
+    <script src="errores.js"></script>
+    <script src="retos.js"></script>
+    <script src="disciplinas.js"></script>
+    <script src="trabajo.js"></script>
+    <script src="conexion.js"></script>
+    <script src="futuro.js"></script>
+    
+    <script>
+        // Función mejorada para cargar contenido
+        function loadContent(section) {
+            const contentDiv = document.getElementById('content');
+            const navButtons = document.querySelectorAll('.nav-btn');
+            
+            // Remover clase active de todos los botones
+            navButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Agregar clase active al botón seleccionado
+            const activeButton = document.querySelector(`[data-section="${section}"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+            
+            // Animación de salida
+            contentDiv.style.opacity = '0';
+            contentDiv.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                // Cargar nuevo contenido
+                if (typeof window[section] === 'function') {
+                    contentDiv.innerHTML = window[section]();
+                } else {
+                    contentDiv.innerHTML = `
+                        <div class="content-header">
+                            <h2>Contenido no disponible</h2>
+                            <p>Esta sección está en desarrollo</p>
+                        </div>
+                        <div class="content-body">
+                            <p>Por favor, selecciona otra sección del menú.</p>
+                        </div>
+                    `;
+                }
+                
+                // Animación de entrada
+                contentDiv.style.opacity = '1';
+                contentDiv.style.transform = 'translateY(0)';
+            }, 200);
+        }
+        
+        // Efecto de parallax sutil en el scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.background-decoration');
+            const speed = scrolled * 0.5;
+            parallax.style.transform = `translateY(${speed}px)`;
+        });
+        
+        // Animación de entrada para las tarjetas
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observar elementos para animaciones
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.welcome-card, .content-section');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease-out';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
